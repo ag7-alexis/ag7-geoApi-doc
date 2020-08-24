@@ -1,0 +1,70 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url(~font-awesome/css/font-awesome.css);
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-blue {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 61, 128, 1) 0%,
+    rgba(0, 123, 255, 1) 50%,
+    rgba(0, 61, 128, 1) 100%
+  );
+}
+
+.method {
+  background-color: #0053b3;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 0.3em 1em;
+  margin-right: 1em;
+  width: 75px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.desc {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  font-weight: 500;
+  padding: 0.3em 1em;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+pre {
+  background: rgb(234, 239, 241);
+  padding: 5px;
+  max-width: 100%;
+  overflow-x: auto;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  height: 360px;
+}
+
+@media (max-width: 500px) {
+  .no-mobile {
+    display: none;
+  }
+}

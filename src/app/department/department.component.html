@@ -1,0 +1,234 @@
+<div class="w-100 bg-blue">
+  <h1 class="py-4 text-center font-weight-bold text-light"><a class="text-light nav-link d-inline-block p-0"
+      routerLink="/home">API Géographie de
+      France</a> > Départements</h1>
+</div>
+
+<div class="w-100 text-center pb-3">
+  <h2 class="font-weight-bold">Découvrez l'API</h2>
+  <span (click)="scrollTo(docTech)" class="font-weight-bold pointer h4 nav-link d-inline-block"><i
+      class="fa fa-book mr-1"></i>Documentation technique</span>
+  <span (click)="scrollTo(test)" class="font-weight-bold pointer h4 nav-link d-inline-block"><i
+      class="fa fa-search mr-1"></i>Tester</span>
+</div>
+
+<div #docTech class="w-100 bg-primary pb-3">
+  <span class="d-block text-center font-weight-bold text-light py-3 h3"><i class="fa fa-book mr-1"></i>Documentation
+    technique</span>
+
+  <div class="w-100 px-2">
+
+    <div class="card mx-auto mb-3">
+
+      <div class="card-header d-flex pointer" id="toggle-department" (click)="getDrop('dep')">
+        <span class="method">GET</span>
+        <div class="desc">
+          <span class="mr-auto font-weight-bold">/department/&#123;param_department}</span>
+          <span class="no-mobile">Récupérer des informations sur des départements</span>
+        </div>
+        <i class="fa fa-angle-down fa-2x" id="i-dep"></i>
+      </div>
+
+      <div class="card-body" id="div-dep" style="display: none;">
+        <p>L'API retourne la liste des départements, correspondants au paramètre de la recherche (par nom ou numéro de
+          département), de France.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Attribut</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>name</td>
+              <td>Nom du département</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>number</td>
+              <td>Numéro du département</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>info</td>
+              <td>Information sur le département</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>region</td>
+              <td>Détails sur la région (<a routerLink="/region">détails</a>) correspondate.</td>
+              <td>object</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mx-auto mb-3">
+
+      <div class="card-header d-flex pointer" id="toggle-departmentByRegion" (click)="getDrop('departmentRegion')">
+        <span class="method">GET</span>
+        <div class="desc">
+          <span class="mr-auto font-weight-bold">/department/&#123;nom_region}/region}</span>
+          <span class="no-mobile">Récupérer les informations des départements d'un region</span>
+        </div>
+        <i class="fa fa-angle-down fa-2x" id="i-departmentRegion"></i>
+      </div>
+
+      <div class="card-body" id="div-departmentRegion" style="display: none;">
+        <p>L'API retourne la liste des départements se situant dans la région correspondante au paramètre de la
+          recherche (nom de la région).</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Attribut</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>name</td>
+              <td>Nom du département</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>number</td>
+              <td>Numéro du département</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>info</td>
+              <td>Information sur le département</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>region</td>
+              <td>Détails sur la région (<a routerLink="/region">détails</a>) correspondate.</td>
+              <td>object</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mx-auto">
+
+      <div class="card-header d-flex pointer" id="toggle-Param" (click)="getDrop('Param')">
+        <div class="desc">
+          <span class="mr-auto font-weight-bold">Paramètres</span>
+        </div>
+        <i class="fa fa-angle-down fa-2x" id="i-Param"></i>
+      </div>
+
+      <div class="card-body" id="div-Param" style="display: none;">
+        <p>Potentiel paramètres à ajouter à l'url de votre requête envoyé à l'API.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Paramètre</th>
+              <th scope="col">Effet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>nom_region</td>
+              <td>Le nom complet de la région recherchée.</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>param_department</td>
+              <td>Le numéro ou le nom (complet ou non) du département recherchée.</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>noInfo</td>
+              <td>L'API ne retournera pas l'attribut "info".</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>noRegion</td>
+              <td>L'API ne retournera pas l'attribut "region".</td>
+            </tr>
+          </tbody>
+        </table>
+        <input disabled type="text" class="form-control"
+          value="Url exemple : https://api-ag7-geo.herokuapp.com\public/api/departement/guadeloupe/region?noInfo&noRegion">
+        <input disabled type="text" class="form-control mt-1"
+          value="Url exemple : https://api-ag7-geo.herokuapp.com\public/api/departement/26?noRegion">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #test class="w-100 bg-light pb-3">
+  <span class="d-block text-center font-weight-bold py-3 h3"><i class="fa fa-search mr-1"></i>Tester</span>
+  <div class="row m-0">
+    <div class="col-sm-6 p-4">
+      <div class="card text-white bg-warning mb-3">
+        <div class="card-body">
+          <span class="card-title h5"><i class="fa fa-warning mr-1"></i>Une clé vous sera nécessaire</span>
+          <p class="card-text">Afin de pouvoir utiliser l'API sur vos projets, il vous faudra une clé qui s'obtient
+            gratuitement en ayant un compte. <a class="text-light" routerLink="/register">M'inscire.</a></p>
+        </div>
+      </div>
+      <input disabled type="text" class="form-control" [(ngModel)]="this.urlActive" (onChange)="callApi()">
+      <div class="row text-center mt-2">
+        <div class="col-sm-6">
+          <a class="btn btn-primary w-100" (click)="switchUrl('department')" id="department">/department/&#123;param_department}</a>
+        </div>
+        <div class="col-sm-6">
+          <a class="btn btn-secondary w-100" (click)="switchUrl('departmentByRegion')" id="departmentByRegion">/department/&#123;nom}/region</a>
+        </div>
+
+      </div>
+      <span class="d-block text-center h5 mt-3">Modifier les paramètres</span>
+      <div class="w-100 text-center">
+        <div id="div-department" class="row" style="display: flex;">
+          <div class="col-sm-6 p-2">
+            <input type="text" [(ngModel)]="this.paramDepartment" class="form-control">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked="true" class="custom-control-input" [(ngModel)]="infoDepartmentIsActive"
+                id="switchInfo" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchInfo">Obtenir l'attribut "info"</label>
+            </div>
+          </div>
+          <div class="col-sm-6 p-2">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked="true" class="custom-control-input" [(ngModel)]="regionDepartmentIsActive"
+                id="switchRegion" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchRegion">Obtenir l'attribut "region"</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="div-departmentByRegion" style="display: none;" class="row">
+          <div class="col-6 p-2">
+            <input type="text" [(ngModel)]="this.nomRegion" class="form-control">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked="true" class="custom-control-input" [(ngModel)]="infoDepartmentByRegionIsActive"
+                id="switchInfo2" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchInfo2">Obtenir l'attribut "info"</label>
+            </div>
+          </div>
+          <div class="col-6 p-2">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked="true" class="custom-control-input" [(ngModel)]="regionDepartmentByRegionIsActive"
+                id="switchRegion2" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchRegion2">Obtenir l'attribut "region"</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn btn-success w-100" (click)="callApi()">Tester</a>
+    </div>
+    <div class="col-sm-6 p-4">
+      <div class="box box-default">
+        <code>
+          <pre>{{this.result | json}}</pre>
+        </code>
+      </div>
+    </div>
+  </div>
+
+</div>

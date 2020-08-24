@@ -1,0 +1,257 @@
+<div class="w-100 bg-blue">
+  <h1 class="py-4 text-center font-weight-bold text-light"><a class="text-light nav-link d-inline-block p-0"
+      routerLink="/home">API Géographie de
+      France</a> > Communes</h1>
+</div>
+
+<div class="w-100 text-center pb-3">
+  <h2 class="font-weight-bold">Découvrez l'API</h2>
+  <span (click)="scrollTo(docTech)" class="font-weight-bold pointer h4 nav-link d-inline-block"><i
+      class="fa fa-book mr-1"></i>Documentation technique</span>
+  <span (click)="scrollTo(test)" class="font-weight-bold pointer h4 nav-link d-inline-block"><i
+      class="fa fa-search mr-1"></i>Tester</span>
+</div>
+
+<div #docTech class="w-100 bg-primary pb-3">
+  <span class="d-block text-center font-weight-bold text-light py-3 h3"><i class="fa fa-book mr-1"></i>Documentation
+    technique</span>
+
+  <div class="w-100 px-2">
+
+    <div class="card mx-auto mb-3">
+
+      <div class="card-header d-flex pointer" (click)="getDrop('cit')">
+        <span class="method">GET</span>
+        <div class="desc">
+          <span class="mr-auto font-weight-bold">/city/&#123;param_city}</span>
+          <span class="no-mobile">Récupérer des informations sur des communes</span>
+        </div>
+        <i class="fa fa-angle-down fa-2x" id="i-cit"></i>
+      </div>
+
+      <div class="card-body" id="div-cit" style="display: none;">
+        <p>L'API retourne la liste des communes correspondantes au paramètre de la recherche (par nom ou code postale).</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Attribut</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>name</td>
+              <td>Nom de la commune</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>population</td>
+              <td>Population de la commune</td>
+              <td>int</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>postalCodes</td>
+              <td>Codes postaux de la commune</td>
+              <td>string[]</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>info</td>
+              <td>Information sur la commune</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>department</td>
+              <td>Détails sur le département (<a routerLink="/department">détails</a>) correspondate</td>
+              <td>object</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mx-auto mb-3">
+
+      <div class="card-header d-flex pointer" (click)="getDrop('citDep')">
+        <span class="method">GET</span>
+        <div class="desc">
+          <span class="mr-auto font-weight-bold">/city/&#123;param_department}/department}</span>
+          <span class="no-mobile">Récupérer les informations des départements d'un region</span>
+        </div>
+        <i class="fa fa-angle-down fa-2x" id="i-citDep"></i>
+      </div>
+
+      <div class="card-body" id="div-citDep" style="display: none;">
+        <p>L'API retourne la liste des communes se situant dans le département correspondant au paramètre de la
+          recherche (nom ou numéro du département).</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Attribut</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>name</td>
+              <td>Nom de la commune</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>population</td>
+              <td>Population de la commune</td>
+              <td>int</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>postalCodes</td>
+              <td>Codes postaux de la commune</td>
+              <td>string[]</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>info</td>
+              <td>Information sur la commune</td>
+              <td>string</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>department</td>
+              <td>Détails sur le département (<a routerLink="/department">détails</a>) correspondate</td>
+              <td>object</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mx-auto">
+
+      <div class="card-header d-flex pointer" id="toggle-Param" (click)="getDrop('Param')">
+        <div class="desc">
+          <span class="mr-auto font-weight-bold">Paramètres</span>
+        </div>
+        <i class="fa fa-angle-down fa-2x" id="i-Param"></i>
+      </div>
+
+      <div class="card-body" id="div-Param" style="display: none;">
+        <p>Potentiel paramètres à ajouter à l'url de votre requête envoyé à l'API.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Paramètre</th>
+              <th scope="col">Effet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-secondary">
+              <td>param_city</td>
+              <td>Le code postal ou le nom (complet ou non) de la commune recherchée.</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>param_department</td>
+              <td>Le numéro ou le nom (complet ou non) du département recherchée.</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>noInfo</td>
+              <td>L'API ne retournera pas l'attribut "info".</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>noDepartment</td>
+              <td>L'API ne retournera pas l'attribut "department".</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>noRegion</td>
+              <td>L'API ne retournera pas l'attribut "region".</td>
+            </tr>
+          </tbody>
+        </table>
+        <input disabled type="text" class="form-control"
+          value="Url exemple : https://api-ag7-geo.herokuapp.com\public/api/city/Paris?noInfo&noDepartment">
+        <input disabled type="text" class="form-control mt-1"
+          value="Url exemple : https://api-ag7-geo.herokuapp.com\public/api/city/07/department?noRegion">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #test class="w-100 bg-light pb-3">
+  <span class="d-block text-center font-weight-bold py-3 h3"><i class="fa fa-search mr-1"></i>Tester</span>
+  <div class="row m-0">
+    <div class="col-sm-6 p-4">
+      <div class="card text-white bg-warning mb-3">
+        <div class="card-body">
+          <span class="card-title h5"><i class="fa fa-warning mr-1"></i>Une clé vous sera nécessaire</span>
+          <p class="card-text">Afin de pouvoir utiliser l'API sur vos projets, il vous faudra une clé qui s'obtient
+            gratuitement en ayant un compte. <a class="text-light" routerLink="/register">M'inscire.</a></p>
+        </div>
+      </div>
+      <input disabled type="text" class="form-control" [(ngModel)]="this.urlActive" (onChange)="callApi()">
+      <div class="row text-center mt-2">
+        <div class="col-sm-6">
+          <a class="btn btn-primary w-100" (click)="switchUrl('department')" id="department">/city/&#123;param_city}</a>
+        </div>
+        <div class="col-sm-6">
+          <a class="btn btn-secondary w-100" (click)="switchUrl('departmentByRegion')" id="departmentByRegion">/city/&#123;param_department}/department}</a>
+        </div>
+
+      </div>
+      <span class="d-block text-center h5 mt-3">Modifier les paramètres</span>
+      <div class="w-100 text-center">
+        <div id="div-department" class="row" style="display: flex;">
+          <div class="col-sm-6 p-2">
+            <input type="text" [(ngModel)]="this.paramCity" class="form-control">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked="true" class="custom-control-input" [(ngModel)]="infoCityIsActive"
+                id="switchInfo" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchInfo">Obtenir l'attribut "info"</label>
+            </div>
+          </div>
+          <div class="col-sm-6 p-2">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" [(ngModel)]="depCityIsActive"
+                id="switchDep" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchDep">Obtenir l'attribut "department"</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" checked="true" class="custom-control-input" [(ngModel)]="regionCityIsActive"
+                id="switchRegion" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchRegion">Obtenir l'attribut "region"</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="div-departmentByRegion" style="display: none;" class="row">
+          <div class="col-6 p-2">
+            <input type="text" [(ngModel)]="this.paramDepartment" class="form-control">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" [(ngModel)]="infoCityByDepIsActive"
+                id="switchInfo2" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchInfo2">Obtenir l'attribut "info"</label>
+            </div>
+          </div>
+          <div class="col-6 p-2">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" [(ngModel)]="depCityByDepIsActive"
+                id="switchDep2" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchDep2">Obtenir l'attribut "department"</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" [(ngModel)]="regionCityByDepIsActive"
+                id="switchRegion3" [ngModelOptions]="{standalone: true}">
+              <label class="custom-control-label" for="switchRegion3">Obtenir l'attribut "region"</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn btn-success w-100" (click)="callApi()">Tester</a>
+    </div>
+    <div class="col-sm-6 p-4">
+      <div class="box box-default">
+        <code>
+          <pre>{{this.result | json}}</pre>
+        </code>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,90 @@
+<div class="w-100 bg-blue">
+  <h1 class="pt-4 text-center font-weight-bold text-light">API Géographie de France</h1>
+  <h4 class="p-1 pb-4 text-center text-white">Rechercher les communes, départements et régions, et obtenez des
+    informations les concernant.</h4>
+</div>
+
+<div class="row mt-5 w-100">
+  <div class="text-center col-sm-4 border-right mb-4">
+    <h2 class="font-weight-bold">Région</h2>
+    <p>Obtenir des informations sur toutes les régions de France.</p>
+    <a class="btn btn-primary" routerLink="/region"><i class="fa fa-book mr-1"></i>Voir la documentation</a>
+  </div>
+  <div class="text-center col-sm-4 border-right mb-4">
+    <h2 class="font-weight-bold">Département</h2>
+    <p>Obtenir des informations sur toutes les départements de France.</p>
+    <a class="btn btn-primary" routerLink="/department"><i class="fa fa-book mr-1"></i>Voir la documentation</a>
+  </div>
+  <div class="text-center col-sm-4 mb-4">
+    <h2 class="font-weight-bold">Commune</h2>
+    <p>Obtenir des informations sur toutes les communes de France possédant plus de 2000 habitants.</p>
+    <a class="btn btn-primary" routerLink="/city"><i class="fa fa-book mr-1"></i>Voir la documentation</a>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow text-white bg-warning mt-5">
+        <div class="card-body">
+          <span class="card-title h5"><i class="fa fa-warning mr-1"></i>Une clé vous sera nécessaire</span>
+          <p class="card-text">Afin de pouvoir utiliser l'API sur vos projets, il vous faudra une clé qui s'obtient
+            gratuitement en ayant un compte. <a class="text-light" routerLink="/register">M'inscire.</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row pt-5 mb-5">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header text-center bg-success text-light">
+          <span class="h4">Développeur</span>
+        </div>
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-8  border-bottom">
+              <span class="h5">GUAY Alexis</span>
+              <p>Développeur étudiant de 20 ans, titulaire d'un BTS SIO option SLAM et actuellement en Licence
+                professionnel MIW (2020/2021).</p>
+              <p>Le but de cette API été de travailler avec une base de données assez importante (+ 5000
+                enregistrements) afin d'optimiser les requêtes pour garder un temps de réponse le faible possible.</p>
+              <p>Les données ont été récupérées à partir de l'API découpage administratif du gouvernement ainsi que de
+                l'API de Wikipedia.</p>
+            </div>
+            <div class="col-sm-4  border-bottom">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">LinkedIn <i class="text-primary fa fa-linkedin"></i> : <a
+                    href="https://www.linkedin.com/in/guayalexis/" target="_blank">Guay Alexis</a> </li>
+                <li class="list-group-item">Mail : <a href="mailto:guay.alexis7@gmail.com">guay.alexis7@gmail.com</a>
+                </li>
+                <li class="list-group-item">GitHub <i class="fa fa-github"></i> : <a
+                    href="https://github.com/ag7-alexis" target="_blank">ag7-alexis</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 border-right">
+              <h5 class="text-center font-weight-bold">Front-End</h5>
+              <p>Le Front-End est fait avec <b>Angular 10</b> avec la précieuse aide de <b>Bootstrap</b> et de
+                <b>AngularMaterial</b>.</p>
+            </div>
+            <div class="col-sm-4 border-right">
+              <h5 class="text-center font-weight-bold">Back-End</h5>
+              <p>La partie Back-End est une API réalisée en <b>Java 11</b> avec le Framework <b>Spring</b>. J'utilise
+                principalement
+                <b>SpringBoot</b> et <b>SpringSecurity</b> pour sécuriser les requêtes vers l'API avec des <b>JWT</b>.
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <h5 class="text-center font-weight-bold">Base de données</h5>
+              <p>J'utilise une base de données <b>PostgreSQL</b>, la persistance des données est assuré à l'aide de
+                <b>JPA</b> et <b>Hibernate</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
