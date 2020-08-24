@@ -5,7 +5,7 @@ import { TokenStorageService } from './token-storage.service';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
-const PUBLIC_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyOTQ1OTQ4Nn0.nyIQbppgt6PxB5fo33M9cJgaW3iZnwR8x-bFqjcR-ELW_nsxfo3d9IRIZLU1kFkQ72enzsnRy8ntuAUJQqFKbw';
+const PUBLIC_TOKEN = '***';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
